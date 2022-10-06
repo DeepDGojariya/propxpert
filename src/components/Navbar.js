@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from "../static/download.png"
 import "./Navbar.css"
 export default function Navbar() {
     return (
@@ -10,7 +9,7 @@ export default function Navbar() {
                 <div className="container-fluid">
                     <a className="navbar-brand nav-item" href="/">
                         {/* <img src={logo} alt="" width="20" height="20" className="d-inline-block align-text-top" style={{borderRadius:"50%"}} /> */}
-                        Bootstrap
+                        PropXpert
                     </a>
 
                     <ul className="d-flex" style={{ listStyle: "none" }}>
