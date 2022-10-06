@@ -4,35 +4,35 @@ export default function AddProperty() {
     return (
         <>
             <form className='container'>
-                <div class="mb-3">
-                    <label for="username" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" />
+                <div className="mb-3">
+                    <label for="username" className="form-label">Name</label>
+                    <input type="text" className="form-control" id="username" aria-describedby="userNameHelp" />
                 </div>
-                <div class="mb-3">
-                    <label for="mobile_number" class="form-label">Mobile</label>
-                    <input type="text" class="form-control" id="mobile_number" aria-describedby="emailHelp" />
+                <div className="mb-3">
+                    <label for="mobileNumber" className="form-label">Mobile</label>
+                    <input type="text" className="form-control" id="mobileNumber" aria-describedby="mobileNoHelp" />
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                <div className="mb-3">
+                    <label for="email" className="form-label">Email address</label>
+                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
                 </div>
-                <p className='mx-2'>Property Details</p>
-                <div class="form-check" className='mx-2'>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                    <label class="form-check-label" for="flexRadioDefault1">
+                <h6 className='mx-2'>Property Details</h6>
+                <div className="form-check mx-2">
+                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" />
+                    <label className="form-check-label" for="flexRadioDefault">
                         For Sale
                     </label>
                 </div>
-                <div class="form-check" className='mx-2'>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
-                    <label class="form-check-label" for="flexRadioDefault2">
+                <div className="form-check mx-2">
+                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked />
+                    <label className="form-check-label" for="flexRadioDefault1">
                         For Rent
                     </label>
                 </div>
                 <br></br>
                 <div>
-                    <label for="loc_city" className='mx-2'>Location:</label>
-                    <select name="loc_city" id="loc_city">
+                    <label for="locCity" className='mx-2'>Location:</label>
+                    <select name="locCity" id="locCity">
                         <option value="mumbai">Mumbai</option>
                         <option value="delhi">Delhi</option>
                         <option value="chennai">Chennai</option>
@@ -47,17 +47,22 @@ export default function AddProperty() {
                     </select>
                 </div>
 
-                <div class="mb-3">
-                    <label for="locality" class="form-label">Locality</label>
-                    <input type="text" class="form-control" id="locality" />
-                </div>
-                <div class="mb-3">
-                    <label for="Address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="Address" />
-                </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form></> 
-
-  )
+                <div className="my-3">
+                    <label for="locality" className="form-label">Locality</label>
+                    <input type="text" className="form-control" id="locality" />
+                </div>
+                <div className="mb-3">
+                    <label for="Address" className="form-label">Address</label>
+                    <input type="text" className="form-control" id="Address" />
+                </div>
+                <div className="mb-3">
+                <label for="propertyImage" className="form-label">Images</label>
+                <br />
+                <input type="file" name="propertyImage" id="propertyImage"/>
+                </div>
+                <button type="submit" className="mb-3 btn btn-primary">Submit</button>
+            </form>
+        </>
+    )
 }

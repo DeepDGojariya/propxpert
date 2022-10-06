@@ -12,8 +12,8 @@ function App() {
     
     <Navbar></Navbar>
     <Home></Home>
-    {/* <AddProperty></AddProperty>
-    <Properties></Properties> */}
+    {/* <AddProperty></AddProperty> */}
+    {/* <Properties></Properties> */}
     <Footer></Footer>
     </div>
   );

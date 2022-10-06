@@ -4,34 +4,24 @@ import React from 'react'
 export default function Home() {
   return (
     <div>
-
-
-
-
+      <div className='bg-image' style={{backgroundImage:"url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg')"}}>
       <div className="p-5 text-center bg-image rounded-3" >
         <div className="mask" >
           <div className="d-flex justify-content-center align-items-center h-100">
-            <div className="text-red">
+            <div className="">
               <h1 className="mb-3" style={{ color: "#1B2430", fontFamily: "Lato" }}>Find the Home you'll Love</h1>
             </div>
           </div>
         </div>
       </div>
-
-
-
-
       <section className="search-sec">
-        <div className="container ">
+        <div className="container">
           <form action="/" method="post" novalidate="novalidate">
             <div className="row">
-              <div className="col-lg-12">
-                <div className="row m-auto">
-
-
-
+              <div className="col-lg-12 ">
+                <div className="row ms-5">
                   <div className="col-lg-3 col-md-2 col-sm-12 p-0">
-                    <select className="form-control search-slt" id="exampleFormControlSelect1">
+                    <select className="form-control search-slt" id="location-select">
                       <option>Location</option>
                       <option>Mumbai</option>
                       <option>Bangalore</option>
@@ -40,20 +30,17 @@ export default function Home() {
                       <option>Chennai</option>
                     </select>
                   </div>
-
-
                   <div className="col-lg-3 col-md-2 col-sm-12 p-0">
-                    <select className="form-control search-slt" id="exampleFormControlSelect1">
+                    <select className="form-control search-slt" id="property-type-select">
                       <option>Buy</option>
                       <option>Sell</option>
                     </select>
                   </div>
-
                   <div className="col-lg-3 col-md-2 col-sm-12 p-0">
-                    <input type="text" className="form-control search-slt" placeholder="Budget" />
+                    <input type="text" className="form-control search-slt" id='budget' placeholder="Budget"/>
                   </div>
-                  <div className="col-lg-3 col-md-2 col-sm-12 p-0 m-auto">
-                    <button type="button" className="btn btn-danger">Search</button>
+                  <div className="col-lg-3 col-md-2 col-sm-12 p-0 m-0">
+                    <button type="button" className="btn btn-danger w-50">Search</button>
                   </div>
                 </div>
               </div>
@@ -61,17 +48,13 @@ export default function Home() {
           </form>
         </div>
       </section>
-
-
+      </div>
       <div>
+      {/* Todo style correction */}
         <div className="container">
-
           <h1 className="fw-light text-center text-lg-start mt-4 mb-0">Thumbnail Gallery</h1>
-
           <hr className="mt-2 mb-5" />
-
           <div className="row text-center text-lg-start">
-
             <div className="col-lg-3 col-md-4 col-6">
               <a href="/" className="d-block mb-4 h-100">
                 <img className="img-fluid img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1gC9HT_YdK86QKGGk9HsGw8aRodeabTxkJ0kqfmc5ZYn4p8J2a3g6OlarjPk3IjXLL6Y&usqp=CAU" alt="" />
@@ -136,11 +119,6 @@ export default function Home() {
 
         </div>
       </div>
-
-
-
-
-
     </div>
   )
 }
