@@ -2,9 +2,6 @@
 color:#D6D5A8;
 
 }
-nav{
-    background-color: brown;
-}
 
 .navbar{
     background-color:#1B2430 ;
@@ -21,4 +18,10 @@ nav{
 
 .sub-nav{
     background-color: #51557E;
+}
+
+
+.nav-link:hover{
+    color:white;
+    
 }

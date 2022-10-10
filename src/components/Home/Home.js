@@ -4,8 +4,8 @@ import React from 'react'
 export default function Home() {
   return (
     <div>
-      <div className='bg-image' style={{backgroundImage:"url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg')"}}>
-      <div className="p-5 text-center bg-image rounded-3" >
+      
+      <div className="p-1 text-center bg-image rounded-3" >
         <div className="mask" >
           <div className="d-flex justify-content-center align-items-center h-100">
             <div className="">
@@ -40,7 +40,7 @@ export default function Home() {
                     <input type="text" className="form-control search-slt" id='budget' placeholder="Budget"/>
                   </div>
                   <div className="col-lg-3 col-md-2 col-sm-12 p-0 m-0">
-                    <button type="button" className="btn btn-danger w-50">Search</button>
+                    <button type="button" style={{backgroundColor:"#51557E",color:"white"}} className="btn w-50">Search</button>
                   </div>
                 </div>
               </div>
@@ -48,7 +48,7 @@ export default function Home() {
           </form>
         </div>
       </section>
-      </div>
+      
       <div>
       {/* Todo style correction */}
         <div className="container">
