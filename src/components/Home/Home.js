@@ -33,7 +33,7 @@ export default function Home() {
                   <div className="col-lg-3 col-md-2 col-sm-12 p-0">
                     <select className="form-control search-slt" id="property-type-select">
                       <option>Buy</option>
-                      <option>Sell</option>
+                      <option>Rent</option>
                     </select>
                   </div>
                   <div className="col-lg-3 col-md-2 col-sm-12 p-0">

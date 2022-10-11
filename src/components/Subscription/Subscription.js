@@ -1,13 +1,26 @@
+import axios from 'axios'
 import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import './Subscription.css'
 
 export default function Subscription() {
+    const params = useParams()
+    const url = 'http://localhost:4000/api/v1/add-subscription'
+    const data = {
+        name:localStorage.getItem('username')
+    }
+    const navigate = useNavigate()
+    const onSubscribe = ()=>{
+        axios.patch(url,data).then((res)=>console.log(res.data)).catch(err=>console.log(err))
+        localStorage.setItem('subscribed',true)
+        navigate('/property/'+params.id)
+    }
     return (
         <>
 
             <div className="container">
                 <div className="section-title text-center">
-                    <h1 className='pricing-main'>Pricing Plan<br></br><br></br></h1>
+                    {/* <h1 className='pricing-main'>Pricing Plan<br/></h1> */}
                 </div>
                 <div className="row gutters">
                     <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6" >
@@ -25,7 +38,7 @@ export default function Subscription() {
                                 <li className="text-muted"><del>Direct buyer access</del></li>
                             </ul>
                             <div className="pricing-footer">
-                                <a href="/" className="btn btn-primary btn-lg">Subscribe</a>
+                                <button className="btn btn-primary btn-lg" onClick={onSubscribe}>Subscribe</button>
                             </div>
                         </div>
                     </div>
@@ -44,7 +57,7 @@ export default function Subscription() {
                                 <li className="text-muted"><del>No deposit for rent</del></li>
                             </ul>
                             <div className="pricing-footer">
-                                <a href="/" className="btn btn-primary btn-lg">Subscribe</a>
+                                <button className="btn btn-primary btn-lg" onClick={onSubscribe}>Subscribe</button>
                             </div>
                         </div>
                     </div>
@@ -65,7 +78,7 @@ export default function Subscription() {
 
                             </ul>
                             <div className="pricing-footer">
-                                <a href="/" className="btn btn-primary btn-lg">Subscribe</a>
+                                <button className="btn btn-primary btn-lg" onClick={onSubscribe}>Subscribe</button>
                             </div>
                         </div>
                     </div>
