@@ -7,9 +7,17 @@ export default function Login() {
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
     const navigate = useNavigate()
+    const adminLogin = ()=>{
+        if(username==='admin' && password==='1234'){
+            localStorage.setItem('admin','1')
+            navigate('/admin/manage-properties')
+            
+        }
+    }
     const loginHandler = (e)=>{
         e.preventDefault()
-        console.log(username);
+        
+        
         const url = 'http://localhost:4000/api/v1/login'
         const data = {
             username:username,
@@ -20,10 +28,15 @@ export default function Login() {
         .then((res)=>{
             localStorage.setItem('auth-token',res.data.token)
             localStorage.setItem('auth','1')
+            localStorage.setItem('username',res.data.username)
+            localStorage.setItem('email',res.data.email)
+            localStorage.setItem('number',res.data.number)
+            localStorage.setItem('subscribed',res.data.subscribed)
+            localStorage.setItem('admin','0')
         })
         .catch((err)=>console.log(err))
         navigate('/')
-
+        
     }
     return (
         <>
@@ -50,7 +63,7 @@ export default function Login() {
                                         <form onSubmit={loginHandler}>
                                             <div className="form-outline mb-2">
                                                 <input type="text" id="username" className="form-control form-control-lg" value={username} onChange={(e)=>setUsername(e.target.value)}/>
-                                                <label className="form-label" for="username" name="username">Email address</label>
+                                                <label className="form-label" for="username" name="username">Username</label>
                                             </div>
 
                                             <div className="form-outline mb-2">
@@ -59,7 +72,8 @@ export default function Login() {
                                             </div>
 
                                             <div className="pt-1 mb-2">
-                                                <button className="btn btn-lg btn-block" style={{ backgroundColor: "#51557E", color: "white" }} type="submit">Login</button>
+                                                <button className="btn btn-lg btn-block mx-2" style={{ backgroundColor: "#51557E", color: "white" }} type="submit">Login</button>
+                                                <button className="btn btn-lg btn-block" style={{ backgroundColor: "#51557E", color: "white" }} onClick={adminLogin} type="button">Admin Login</button>
                                             </div>
                                         </form>
 

@@ -2,17 +2,32 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Properties() {
+
+export default function Properties({fp}) {
     const [propertyList,setPropertyList] = useState([])
+    // const [filteredProperty,setFilteredProperty] = useState([])
+    const [location, setLocation] = useState('')
+    const [type, setType] = useState('')
     const url = 'http://localhost:4000/api/v1/get-all-properties'
     const navigate = useNavigate()
     useEffect(()=>{
-        axios.get(url)
-        .then(res=>{
-            setPropertyList(res.data.properties)
-        })
-        .catch(err=>console.log(err))
+        if(fp.length!==0){
+           setPropertyList(fp)
+        }else{
+            axios.get(url)
+            .then(res=>{
+                setPropertyList(res.data.properties)
+            })
+            .catch(err=>console.log(err))
+        }
     },[])
+
+    const filterHandler = (e)=>{
+        e.preventDefault()
+        const url = 'http://localhost:4000/api/v1/filter-property?location='+location+'&type='+type
+        axios.get(url).then((res)=>{setPropertyList(res.data.propertiesData)}).catch(err=>console.log(err))
+        navigate("/")
+    }
 
     const propertyDetail = (pid)=>{
         navigate('/property/'+pid)
@@ -22,44 +37,28 @@ export default function Properties() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-4" style={{ borderRight: "2px solid #1B2430" }}>
-                        <h5>Filters</h5>
-                        <div className="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                            <input type="checkbox" className="btn-check" id="bhk1" autocomplete="off" />
-                            <label className="btn btn-outline-primary" for="bhk1" style={{ borderColor: "#51557E", color: "#1B2430" }}>1BHK</label>
+                    <h5>Filters</h5>
+            <form onSubmit={filterHandler}>
+                <select className="form-control search-slt" id="location-select" value={location} onChange={e => setLocation(e.target.value)}>
+                    <option>Location</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="kolkata">Kolkata</option>
+                    <option value="chennai">Chennai</option>
+                </select>
+                <br />
+                <br />
+                <select className="form-control search-slt" id="property-type-select" value={type} onChange={e => setType(e.target.value)}>
+                    <option>Type</option>
+                    <option value="sale">Sale</option>
+                    <option value="rent">Rent</option>
+                </select>
+                <br />
+                <br />
 
-                            <input type="checkbox" className="btn-check" id="bhk2" autocomplete="off" />
-                            <label className="btn btn-outline-primary" for="bhk2" style={{ borderColor: "#51557E", color: "#1B2430" }}>2BHK</label>
-
-                            <input type="checkbox" className="btn-check" id="bhk3" autocomplete="off" />
-                            <label className="btn btn-outline-primary" for="bhk3" style={{ borderColor: "#51557E", color: "#1B2430" }}>3BHK</label>
-                        </div>
-                        <br />
-                        <br />
-                        <div className="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                            <input type="checkbox" className="btn-check" id="city1" autocomplete="off" />
-                            <label className="btn btn-outline-primary" for="city1" style={{ borderColor: "#51557E", color: "#1B2430" }}>Mumbai</label>
-
-                            <input type="checkbox" className="btn-check" id="city2" autocomplete="off" />
-                            <label className="btn btn-outline-primary" for="city2" style={{ borderColor: "#51557E", color: "#1B2430" }}>Bangalore</label>
-
-                            <input type="checkbox" className="btn-check" id="city3" autocomplete="off" />
-                            <label className="btn btn-outline-primary" for="city3" style={{ borderColor: "#51557E", color: "#1B2430" }}>Delhi</label>
-                            <br />
-                            <br />
-                            <input type="checkbox" className="btn-check" id="city4" autocomplete="off" />
-                            <label className="btn btn-outline-primary" for="city4" style={{ borderColor: "#51557E", color: "#1B2430" }}>Kolkata</label>
-
-                            <input type="checkbox" className="btn-check" id="city5" autocomplete="off" />
-                            <label className="btn btn-outline-primary" for="city5" style={{ borderColor: "#51557E", color: "#1B2430" }}>Chennai</label>
-                        </div>
-                        <br />
-                        <br />
-                        <div className="" style={{ width: "200px" }}>
-                            <label for="customRange1" className="form-label"><h6>Price Range</h6></label>
-                            <input type="range" className="form-range" id="customRange1"></input>
-                        </div>
-
-                        <button className="btn my-2" style={{backgroundColor: "#51557E",color: "white"}}>Filter Properties</button>
+                <button className="btn my-4" style={{ backgroundColor: "#51557E", color: "white" }} type="submit">Filter Properties</button>
+            </form>
                     </div>
                     <div className="col-md-8">
                         <h5>Properties</h5>

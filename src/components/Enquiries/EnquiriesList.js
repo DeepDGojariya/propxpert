@@ -7,7 +7,9 @@ export default function EnquiriesList() {
   const params = useParams()
   const url = 'http://localhost:4000/api/v1/get-enquiries/'+params.id
   useEffect(()=>{
-    axios.get(url).then(res=>setBuyers(res.data.buyersList)).catch(err=>console.log(err))
+    axios.get(url).then(res=>{
+      console.log(res.data.buyersList)
+      setBuyers(res.data.buyersList)}).catch(err=>console.log(err))
   },[])
   return (
     <div className='container'>

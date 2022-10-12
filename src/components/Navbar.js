@@ -7,17 +7,23 @@ export default function Navbar() {
     const username = localStorage.getItem('username')?localStorage.getItem('username'):'Username'
     const navigate = useNavigate()
     // useEffect(()=>{},[auth,username])
-
+    const admin = localStorage.getItem('admin')
     const postPropertyHandler = ()=>{
         navigate('/add-property')
     }
 
     const logoutHandler = ()=>{
+        // localStorage.clear()
         localStorage.setItem('auth','0')
-        localStorage.removeItem('auth-token')
-        // localStorage.removeItem('email')
-        // localStorage.removeItem('number')
-        // localStorage.removeItem('username')
+        localStorage.setItem('auth-token','')
+        localStorage.setItem('email','')
+        localStorage.setItem('number','')
+        localStorage.setItem('username','')
+        navigate('/')
+    }
+
+    const adminLogoutHandler = ()=>{
+        localStorage.setItem('admin','0')
         navigate('/')
     }
     return (
@@ -25,21 +31,23 @@ export default function Navbar() {
             <nav className="navbar">
                 <div className="container-fluid">
                     <Link className="navbar-brand nav-item" to="/">
-                        {/* <img src={logo} alt="" width="20" height="20" className="d-inline-block align-text-top" style={{borderRadius:"50%"}} /> */}
+                    <i class  ="fa fa-home" ></i>&nbsp;
                         PropXpert
                     </Link>
-
+                    
                     <ul className="d-flex nav-list">
-                        {auth==='0' &&
+                        {auth==='0'&& admin==='0'&&
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Login</Link>
                         </li>
                         }
+                    {admin==='0'?
                         <li className="nav-item">
-                            <button className="nav-link btn post-property-btn" onClick={postPropertyHandler}>Post property</button>
-                        </li>
+                            <button className="nav-link btn post-property-btn mx-2" onClick={postPropertyHandler}>Post property</button>
+                        </li>:<></>
+                    }
                         
-                        {auth==='1'&&
+                    {auth==='1'&&
                         <li className="nav-item">
                             <div class="dropdown">
                                 <button className="nav-link mx-2 btn dropdown-toggle post-property-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,8 +60,14 @@ export default function Navbar() {
                                 </ul>
                             </div>
                         </li>
-                        }
+                    }
+                    {admin==='1'&&
+                        <li className="nav-item">
+                            <button className="nav-link btn post-property-btn" onClick={adminLogoutHandler}>Logout</button>
+                        </li>
+                    }
                     </ul>
+                    
                 </div>
 
 

@@ -96,11 +96,6 @@ export default function AddProperty() {
                     <label for="Address" className="form-label">Address</label>
                     <input type="text" className="form-control" id="Address" value={address} onChange={e=>setAddress(e.target.value)} />
                 </div>
-                <div className="mb-3">
-                <label for="propertyImage" className="form-label">Images</label>
-                <br />
-                <input type="file" name="propertyImage" id="propertyImage"/>
-                </div>
                 <button type="submit" className="mb-3 btn btn-primary">Submit</button>
             </form>
         </>
