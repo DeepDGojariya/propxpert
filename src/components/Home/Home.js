@@ -24,7 +24,7 @@ export default function Home({fp}) {
     dots: false,
   infinite: true,
   slidesToShow: 3,
-  slidesToScroll: 1,
+  slidesToScroll: 3,
   autoplay: true,
   autoplaySpeed: 2000,
   pauseOnHover: true
@@ -130,6 +130,9 @@ export default function Home({fp}) {
 <div class="col-md-3">
  <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3JTIwZGVsaGklMjBpbmRpYXxlbnwwfHwwfHw%3D&w=1000&q=80" class="img-fluid rounded-start" alt="..." style={{height:"400px", width :"400px"}} />
 </div>
+<div class="col-md-3">
+<img src="https://images.pexels.com/photos/6210324/pexels-photo-6210324.jpeg?cs=srgb&dl=pexels-kulish-rawal-6210324.jpg&fm=jpg" class="img-fluid rounded-start" alt="..." style={{height:"400px", width :"400px"}}/>
+ </div>
       <div class="col-md-3">
 <img src="https://res.cloudinary.com/purnesh/image/upload/w_540,f_auto,q_auto:eco,c_limit/21644818922669.jpg" class="img-fluid rounded-start" alt="..." style={{height:"400px", width :"400px"}}/>
  </div><div><br></br></div>

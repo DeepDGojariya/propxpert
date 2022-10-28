@@ -22,7 +22,7 @@ export default function ManageProperties() {
     }
     return (
         <div>
-            <button onClick={manageUser}>Manage Users</button>
+            <button type='button' className='btn btn-secondary mx-2' onClick={manageUser}>Manage Users</button>
             <table className="table table-striped table-responsive-md btn-table">
 
                 <thead>
@@ -57,11 +57,11 @@ export default function ManageProperties() {
                             {property.status === "approved" && <td><p>Approved</p></td>}
                             {property.status === "pending" &&
                                 <td>
-                                    <button type="button" className=" btn btn-secondary" onClick={()=>approveProperty(property.id)}>Approve</button>
+                                    <button type="button" className=" btn btn-success" onClick={()=>approveProperty(property.id)}>Approve</button>
                                 </td>
                             }
                             <td>
-                                <button type="button" className=" btn btn-secondary" onClick={()=>deleteProperty(property.id)}>Delete</button>
+                                <button type="button" className=" btn btn-danger" onClick={()=>deleteProperty(property.id)}>Delete</button>
                             </td>
 
                         </tr>

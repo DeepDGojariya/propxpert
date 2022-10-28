@@ -20,7 +20,7 @@ export default function ManageUsers() {
     }
     return (
         <div>
-        <button onClick={manageProperties}>Manage properties</button>
+        <button type='button' className='btn btn-secondary mx-2' onClick={manageProperties}>Manage properties</button>
             <table className="table table-striped table-responsive-md btn-table">
 
                 <thead>
@@ -48,7 +48,7 @@ export default function ManageUsers() {
                         
 
                         <td>
-                            <button type="button" className=" btn btn-secondary" onClick={()=>deleteUser(user.id)}>Delete</button>
+                            <button type="button" className=" btn btn-danger" onClick={()=>deleteUser(user.id)}>Delete</button>
                         </td>
                     </tr>
                 ))
