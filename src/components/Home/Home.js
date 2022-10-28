@@ -21,7 +21,7 @@ export default function Home({fp}) {
   }
 
   const settings = {
-    dots: false,
+    dots: true,
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 3,
@@ -135,8 +135,7 @@ export default function Home({fp}) {
  </div>
       <div class="col-md-3">
 <img src="https://res.cloudinary.com/purnesh/image/upload/w_540,f_auto,q_auto:eco,c_limit/21644818922669.jpg" class="img-fluid rounded-start" alt="..." style={{height:"400px", width :"400px"}}/>
- </div><div><br></br></div>
- <div><br></br></div>
+ </div>
     </Slider>
     </div>
     <div><br></br></div>

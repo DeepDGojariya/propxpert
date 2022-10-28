@@ -31,7 +31,7 @@ export default function Navbar() {
             <nav className="navbar">
                 <div className="container-fluid">
                     <Link className="navbar-brand nav-item" to="/">
-                    <i class  ="fa fa-home" ></i>&nbsp;
+                    <i className  ="fa fa-home" ></i>&nbsp;
                         PropXpert
                     </Link>
                     
